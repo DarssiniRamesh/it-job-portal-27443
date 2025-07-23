@@ -6,3 +6,6 @@
  export function sampleUtils() {
    return "This is a utility function!";
  }
+
+ // (Re-export for future utility extension)
+ export * from "./applications";
