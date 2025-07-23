@@ -98,6 +98,9 @@ const DashboardEmployer = () => {
         </a>
       </div>
       <div style={{ margin: "10px 0" }}>
+        <a className="App-link" href="/my-jobs">Manage My Job Postings</a>
+      </div>
+      <div style={{ margin: "10px 0" }}>
         <a className="App-link" href="/jobs">View all job postings</a>
       </div>
       <div style={{ margin: "10px 0" }}>

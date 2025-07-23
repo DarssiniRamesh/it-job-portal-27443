@@ -10,6 +10,7 @@ import JobDetail from "../pages/JobDetail";
 import Profile from "../pages/Profile";
 import Applications from "../pages/Applications";
 import PostJob from "../pages/PostJob";
+import MyJobs from "../pages/MyJobs";
 import { useAuth } from "../utils/AuthContext";
 
 /**
@@ -61,6 +62,14 @@ const AppRoutes = () => (
       <Route path="/profile" element={<Profile />} />
       <Route path="/applications" element={<Applications />} />
       <Route path="/post-job" element={<PostJob />} />
+      <Route
+        path="/my-jobs"
+        element={
+          <RoleProtectedDashboard role="employer">
+            <MyJobs />
+          </RoleProtectedDashboard>
+        }
+      />
     </Routes>
   </Router>
 );
