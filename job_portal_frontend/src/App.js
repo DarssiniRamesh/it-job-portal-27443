@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import AppRoutes from './routes/AppRoutes';
+import { AuthProvider } from './utils/AuthContext';
 
 // PUBLIC_INTERFACE
 function App() {
@@ -25,8 +26,10 @@ function App() {
       >
         {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
       </button>
-      {/* Could include a top navbar here */}
-      <AppRoutes />
+      {/* Add AuthProvider for global authentication state */}
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </div>
   );
 }
