@@ -1,82 +1,84 @@
-# Lightweight React Template for KAVIA
+# IT Job Portal Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This is the **React** frontend for the IT Job Portal application. It enables job seekers and employers to register, post/search jobs, manage applications, and view dashboards with a clean, modern UI.
 
-## Features
+## Major Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- User Registration & Login (with JWT-based auth)
+- View/add/edit job postings (employers) and search jobs (seekers)
+- Submit and track job applications (job seekers)
+- Dashboards for both employers & seekers
+- Profile management
+- Responsive, minimalistic UI without heavy UI frameworks
+
+## Project Structure
+
+- `src/pages/` – All main page components (`Login`, `Register`, `Jobs`, `DashboardEmployer`, `DashboardSeeker`, etc.)
+- `src/utils/` – API calls (`api.js`), authentication context (`AuthContext.js`), and dashboard/utilities
+- `src/routes/AppRoutes.js` – Route configuration
+- `src/App.js` – Application entry, theme toggle, authentication provider
 
 ## Getting Started
 
-In the project directory, you can run:
+1. **Clone the repo & enter the frontend directory:**
+    ```sh
+    git clone <repo-url>
+    cd it-job-portal-27443/job_portal_frontend
+    ```
 
-### `npm start`
+2. **Install dependencies:**
+    ```sh
+    npm install
+    ```
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **Configure environment variables (if needed):**
+   - The API base URL may be configured inside `src/utils/api.js` or via `.env` with the standard React convention.
+   - Example:
+        ```env
+        REACT_APP_API_BASE_URL=http://localhost:8000
+        ```
+   - By default, the frontend assumes the backend runs on `http://localhost:8000`.
 
-### `npm test`
+4. **Start the development server:**
+    ```sh
+    npm start
+    ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Launches the test runner in interactive watch mode.
+## Deployment & Build
 
-### `npm run build`
+- **Production build:**  
+    ```sh
+    npm run build
+    ```
+    Bundles the app into the `build` directory.
+- **Deployment:**
+    - Serve with any static file server (e.g. Netlify, Vercel, AWS S3 + CloudFront, or Node serve).
+    - No special requirements except correct `REACT_APP_API_BASE_URL`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API Integration
+
+The frontend communicates with the backend REST API described in the [OpenAPI spec](../../it-job-portal-27444/job_portal_backend/interfaces/openapi.json):
+
+- See backend API docs at [http://localhost:8000/docs](http://localhost:8000/docs)
+- All endpoints for authentication, jobs, applications, etc. are documented there.
 
 ## Customization
 
-### Colors
+- Core theme colors can be tweaked in `src/App.css` via CSS variables.
+- UI layout: Top navigation, job search section, page-based routing under `src/routes/AppRoutes.js`
 
-The main brand colors are defined as CSS variables in `src/App.css`:
+## Preview
 
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
+- To preview the entire stack, ensure the backend is running at the expected URL (`http://localhost:8000` by default).
+- Register, post jobs, and apply via the web UI.
 
-### Components
+## Environment Variables
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+- `REACT_APP_API_BASE_URL` – the backend URL (default: `http://localhost:8000`)
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+## Special Notes
 
-## Learn More
+- Make sure the backend server is running and CORS is enabled.
+- For API schema, refer to the backend OpenAPI spec.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
